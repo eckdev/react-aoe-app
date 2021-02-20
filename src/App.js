@@ -1,8 +1,26 @@
+import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
+
+import Home from './components/Home'
+import List from './components/List'
+import Detail from './components/Detail'
+import Nav from './components/Nav'
+
 function App() {
   return (
-    <div className="App">     
-         <img src="images/aoe.jpg" />
-    </div>
+    <Router>
+      <Nav />
+      <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
+        <Route path="/list">
+          <List />
+        </Route>
+        <Route path="/detail">
+          <Detail />
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 
