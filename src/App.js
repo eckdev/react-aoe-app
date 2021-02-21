@@ -16,7 +16,7 @@ function App() {
         <Route path="/list">
           <List />
         </Route>
-        <Route path="/detail">
+        <Route path="/detail/:id">
           <Detail />
         </Route>
       </Switch>

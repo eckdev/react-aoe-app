@@ -1,5 +1,10 @@
 export const GET_UNITS_REQUEST = 'GET_UNITS_REQUEST';
 export const GET_UNITS_FAILURE = 'GET_UNITS_FAILURE';
 export const GET_UNITS_SUCCESS = 'GET_UNITS_SUCCESS';
+export const GET_UNIT = 'GET_UNIT';
 
-export const FILTER_UNIT = 'FILTER_UNIT';
+export const GET_FILTERS = 'GET_FILTERS';
+export const COST_FILTER = 'COST_FILTER';
+export const SET_ACTIVE_COST_FILTER = 'SET_ACTIVE_COST_FILTER';
+export const SET_COST_FILTER = 'SET_COST_FILTER';
+export const AGE_FILTER = 'AGE_FILTER';
