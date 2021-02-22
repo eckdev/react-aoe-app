@@ -10,12 +10,12 @@ function List() {
     const dispatch = useDispatch();
     const { filteredUnits,costs } = useSelector(state => state.unitsReducer);
 
-    useEffect(async () => {
-        await dispatch(getUnits());
-    }, []);
+    useEffect(() => {
+        dispatch(getUnits());
+    }, [dispatch]);
 
     return (
-        <div>
+        <div className="container">
             {
                 <>
                     <Ages />

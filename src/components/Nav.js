@@ -1,13 +1,14 @@
-import React from 'react'
-import { Link } from 'react-router-dom';
+import { Navbar, Nav } from 'react-bootstrap'
 
-function Nav() {
+function Header() {
     return (
-        <nav>
-            <Link to="/">Home</Link>
-            <Link to="/list">List</Link>
-        </nav>
+        <Navbar bg="light" expand="lg">
+            <Nav className="mr-auto" defaultActiveKey="/">
+                <Nav.Link href="/">Home</Nav.Link>
+                <Nav.Link href="/list">  List</Nav.Link>
+            </Nav>
+        </Navbar>
     )
 }
 
-export default Nav
+export default Header

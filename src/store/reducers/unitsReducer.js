@@ -10,7 +10,7 @@ import {
   GET_FILTERS
 } from '../actions/types';
 
-let initialState = {
+export const initialState = {
   units: [],
   filteredUnits: [],
   unit:[],
@@ -69,12 +69,7 @@ const reducer = (state = initialState, action) => {
         ...state,
         filteredUnits: filter === 'All' ? state.units : state.units.filter(unit => unit.age === filter),
         ages: state.ages.map(function(age){
-          if(age.filter === filter){
-            age.isActive = true;
-          }
-          else{
-            age.isActive = false;
-          }
+          age.filter === filter ? age.isActive = true : age.isActive = false;
           return age;
         })
       };

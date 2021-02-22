@@ -10,11 +10,11 @@ function Detail() {
 
     useEffect(() => {
         dispatch(getUnit(id))
-    }, [])
+    }, [dispatch,id])
     return (
-        <div>
-            {console.log(unit)}
-        </div>
+        <h1>
+            {unit.name}
+        </h1>
     )
 }
 

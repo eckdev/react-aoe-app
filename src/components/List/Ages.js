@@ -2,13 +2,15 @@ import React,{useEffect} from 'react'
 import { useDispatch,useSelector } from 'react-redux';
 import { ageFilter,getFilters } from '../../store/actions/index';
 
+import {ButtonGroup, Button} from 'react-bootstrap'
+
 function Ages() {
     const dispatch = useDispatch();
     const {ages} = useSelector(state => state.unitsReducer)
 
     useEffect(() => {
         dispatch(getFilters())
-    }, []);
+    }, [dispatch]);
 
     
     const onAgeClick = e => {
@@ -21,21 +23,21 @@ function Ages() {
 
     return (
         <div className="ages-container">
-            <ul>
+        <ButtonGroup aria-label="Age Filter">
                 {
                     ages.map((age, index) => {
                         return (
-                            <li
+                            <Button
                                 onClick={onAgeClick}
                                 key={index}
-                                style={{ background: age.isActive ? "gray" : "" }}
+                                style={{ background: age.isActive ? "#fff" : "", color: age.isActive ? '#007bff' : '' }}
                             >
                                 {age.filter}
-                            </li>
+                            </Button>
                         )
                     })
                 }
-            </ul>
+            </ButtonGroup>
         </div>
     )
 }
