@@ -1,14 +1,4 @@
-import {
-  GET_UNITS_REQUEST,
-  GET_UNITS_SUCCESS,
-  GET_UNITS_FAILURE,
-  GET_UNIT,
-  AGE_FILTER,
-  COST_FILTER,
-  SET_ACTIVE_COST_FILTER,
-  SET_COST_FILTER,
-  GET_FILTERS
-} from '../actions/types';
+import * as types from '../actions/types';
 
 export const initialState = {
   units: [],
@@ -33,49 +23,55 @@ export const initialState = {
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case GET_UNITS_REQUEST:
+    case types.GET_UNITS_REQUEST:{
       return {
         ...state,
         loading: true
       };
-    case GET_UNITS_SUCCESS:
+    }
+    case types.GET_UNITS_SUCCESS:{
       return {
         ...state,
         loading: false,
         units: action.data.units,
         filteredUnits:action.data.units,
       };
-    case GET_UNITS_FAILURE:
+    }
+    case types.GET_UNITS_FAILURE:{
       return {
         ...state,
         loading: false,
         error: action.error,
       };
-      case GET_UNIT:
+    }
+      case types.GET_UNIT:{
         const id = parseInt(action.payload);
         return {
           ...state,
           unit: state.units.find(x=> x.id === id)
         };
-      case GET_FILTERS:
+      }
+      case types.GET_FILTERS:{
         return {
           ...state,
           ages:state.ages,
           costs: state.costs
         };
-    case AGE_FILTER:
-      let filter = action.payload;
+      }
+    case types.AGE_FILTER:{
+      const ageFilter = action.payload;
       return {
         ...state,
-        filteredUnits: filter === 'All' ? state.units : state.units.filter(unit => unit.age === filter),
+        filteredUnits: ageFilter === 'All' ? state.units : state.units.filter(unit => unit.age === ageFilter),
         ages: state.ages.map(function(age){
-          age.filter === filter ? age.isActive = true : age.isActive = false;
+          age.filter === ageFilter ? age.isActive = true : age.isActive = false;
           return age;
         })
       };
-    case COST_FILTER:
-      let filteredData = state.units;
-      let filters =state.costs.filter(x=> x.isActive); // get Active Cost Filters
+    }
+    case types.COST_FILTER:{
+      var filteredData = state.units;
+      const filters =state.costs.filter(x=> x.isActive); // get Active Cost Filters
 
       let getActiveAge = state.ages.find(x=> x.isActive); // get Active Age
       if (getActiveAge.filter !== 'All') {
@@ -95,7 +91,8 @@ const reducer = (state = initialState, action) => {
         ...state,
         filteredUnits: filtereds,
       };
-    case SET_ACTIVE_COST_FILTER:
+    }
+    case types.SET_ACTIVE_COST_FILTER:{
       return {
         ...state,
         costs: state.costs.map((cost) => {
@@ -105,7 +102,8 @@ const reducer = (state = initialState, action) => {
           return cost;
         })
       }
-      case SET_COST_FILTER:
+    }
+      case types.SET_COST_FILTER:{
         return {
           ...state,
           costs: state.costs.map((cost) => {
@@ -115,6 +113,7 @@ const reducer = (state = initialState, action) => {
             return cost;
           })
         }
+      }
     default:
       return state;
   }

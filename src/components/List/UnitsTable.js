@@ -35,7 +35,7 @@ function UnitsTable({ units }) {
                     </tr>
                 ))
                 :
-                <tr><td>No Records</td></tr>
+                <tr><td></td><td>No Records</td><td></td><td></td></tr>
             }
             </tbody>
         </Table>

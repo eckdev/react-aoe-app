@@ -34,9 +34,8 @@ function Costs() {
             <Form.Group>
                 <Form.Row>
                     {
-                        costs.map((cost, index) => (
-
-                            <Col sm={4}>
+                        costs.map((cost,index) => (
+                            <Col sm={4} key={index}>
                                 <Form.Group id="formGridCheckbox">
                                     <Form.Check
                                         className="check"

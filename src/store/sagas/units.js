@@ -1,14 +1,11 @@
 import { put } from 'redux-saga/effects';
-import {
-    GET_UNITS_SUCCESS,
-    GET_UNITS_FAILURE,
-} from '../actions/types';
+import * as types from '../actions/types';
 import data from '../age-of-empires-units.json'
 
-export function* getUnitsRequestSaga({ payload }) {
+export function* getUnitsRequestSaga() {
     try {
-        yield put({ type: GET_UNITS_SUCCESS, data });
+        yield put({ type: types.GET_UNITS_SUCCESS, data });
     } catch (error) {
-        yield put({ type: GET_UNITS_FAILURE, error });
+        yield put({ type: types.GET_UNITS_FAILURE, error });
     }
 }

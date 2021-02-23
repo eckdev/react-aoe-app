@@ -1,3 +1,4 @@
+import React from 'react';
 import banner from '../assets/images/aoe.jpg'
 
 function Home() {
