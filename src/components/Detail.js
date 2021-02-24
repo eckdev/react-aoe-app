@@ -17,38 +17,47 @@ function Detail() {
 
     return (
         <div className="container mt-3">
-        <Table striped bordered hover>
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                    <th>Expansion</th>
-                    <th>Age</th>
-                    <th>Costs</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>{unit.id}</td>
-                    <td>{unit.name}</td>
-                    <td>{unit.description}</td>
-                    <td>{unit.expansion}</td>
-                    <td>{unit.age}</td>
-                    <td>
-                        {
-                            unit.cost ?
-                                <>
-                                    {unit.cost["Wood"] ? <span style={{ marginRight: '20px' }}>Wood: {unit.cost["Wood"]}</span> : null}
-                                    {unit.cost["Food"] ? <span style={{ marginRight: '20px' }}>Food: {unit.cost["Food"]}</span> : null}
-                                    {unit.cost["Gold"] ? <span>Gold: {unit.cost["Gold"]}</span> : null}
-                                </>
-                                : 'No Cost'
-                        }
-                    </td>
-                </tr>
-            </tbody>
-        </Table>
+            <Table striped bordered hover>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Age</th>
+                        <th>Costs</th>
+                        <th>Times</th>
+                        <th>Hit Points</th>
+                        <th>Attack</th>
+                        <th>Accuracy</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{unit.id}</td>
+                        <td>{unit.name}</td>
+                        <td>{unit.description}</td>
+                        <td>{unit.age}</td>
+                        <td>
+                            {
+                                unit.cost ?
+                                    <>
+                                        {unit.cost["Wood"] ? <span style={{ marginRight: '10px' }}>Wood: {unit.cost["Wood"]}</span> : null}
+                                        {unit.cost["Food"] ? <span style={{ marginRight: '10px' }}>Food: {unit.cost["Food"]}</span> : null}
+                                        {unit.cost["Gold"] ? <span>Gold: {unit.cost["Gold"]}</span> : null}
+                                    </>
+                                    : 'No Cost'
+                            }
+                        </td>
+                        <td>
+                            <span style={{ marginRight: '10px' }}>Build Time: {unit.build_time}</span>
+                            <span style={{ marginRight: '10px' }}>Reload Time: {unit.reload_time}</span>
+                        </td>
+                        <td>{unit.hit_points}</td>
+                        <td>{unit.attack}</td>
+                        <td>{unit.accuracy}</td>
+                    </tr>
+                </tbody>
+            </Table>
         </div>
 
     )
