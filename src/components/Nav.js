@@ -1,12 +1,13 @@
 import React from 'react';
 import { Navbar, Nav } from 'react-bootstrap'
+import { NavLink } from 'react-router-dom';
 
 function Header() {
     return (
         <Navbar bg="light" expand="lg">
             <Nav className="mr-auto" defaultActiveKey="/">
-                <Nav.Link href="/">Home</Nav.Link>
-                <Nav.Link href="/list">  List</Nav.Link>
+                <NavLink to="/" className="nav-link">Home</NavLink>
+                <NavLink to="/list" className="nav-link">  List</NavLink>
             </Nav>
         </Navbar>
     )
