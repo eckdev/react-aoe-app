@@ -10,3 +10,8 @@ I have hosted it by heroku: (https://aoe-case.herokuapp.com/)
 npm i && npm run start
 
 ```
+
+#Test
+```bash
+npm test -- --coverage --watchAll=true
+```
