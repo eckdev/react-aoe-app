@@ -1,7 +1,10 @@
 import React from "react";
+import { BackgroundImage } from "../../components/pages/Home/BackgroundImage";
 
 const Home = () => {
-  return <div className="text-3xl font-bold underline">Home</div>;
+  return (
+    <BackgroundImage />
+  );
 };
 
 export default Home;
