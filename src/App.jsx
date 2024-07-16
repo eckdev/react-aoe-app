@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="relative h-screen w-full">
       <Navbar />
-      <main className="h-screen">
+      <main>
         <Routes>
           <Route path="/" element={<Home />} errorElement={<Error />} />
           <Route path="/units" element={<Units />} />

@@ -12,7 +12,7 @@ const Units = () => {
     dispatch(getUnitsAction());
   }, [dispatch]);
   return (
-    <div>{isLoading ? <span>Loading...</span> : JSON.stringify(data)}</div>
+    <div>{isLoading ? <span>Loading...</span> : <span>Units</span>}</div>
   );
 };
 

@@ -10,7 +10,7 @@ describe('Home component', () => {
     const backgroundImage = container.firstChild;
 
     expect(backgroundImage).toBeInTheDocument();
-    expect(backgroundImage).toHaveStyleRule('display', 'flex');
+    expect(backgroundImage).toHaveStyleRule('min-height', '100vh');
   });
 
   test('contains BackgroundImage component', () => {
