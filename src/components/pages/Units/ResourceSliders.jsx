@@ -54,6 +54,7 @@ const ResourceSliders = () => {
             <Text size={'2'} className="block">Value: {localValues[resource.name]}</Text>
             <Box mt={'8'}>
               <Slider
+                data-testid={`${resource.name}-slider`}
                 name={`${resource.name}Slider`}
                 min={0}
                 max={200}
