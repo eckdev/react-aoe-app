@@ -5,11 +5,25 @@ import { getUnitsErrorAction, getUnitsSuccessAction } from "../slices/units";
 import { getUnitErrorAction, getUnitSuccessAction } from "../slices/unit";
 
 // Generator function
-function* getUnitsSaga() {
+function* getUnitsSaga({payload: filters}) {
+  const {age,food,wood,gold} = filters
   try {
     const response = yield call(() => fetch("./data/age-of-empires-units.json"));
     const data = yield response.json();
-    yield put(getUnitsSuccessAction(data.units));
+    let filteredData = data.units;
+    if (age !== 'All') {
+      filteredData = data.units.filter(x => x.age === age);
+    }
+    if (food.checked) {
+      filteredData = filteredData.filter(unit => unit.cost && unit.cost.Food >= food.value);
+    }
+    if (wood.checked) {
+      filteredData = filteredData.filter(unit => unit.cost && unit.cost.Wood >= wood.value);
+    }
+    if (gold.checked) {
+      filteredData = filteredData.filter(unit => unit.cost && unit.cost.Gold >= gold.value);
+    }
+    yield put(getUnitsSuccessAction(filteredData));
   } catch (error) {
     yield put(getUnitsErrorAction(error));
   }

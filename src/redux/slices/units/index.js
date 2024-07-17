@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   data: [],
   isLoading: false,
-  errors: "",
+  errors: ""
 };
 
 export const unitsSlice = createSlice({
