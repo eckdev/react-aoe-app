@@ -32,7 +32,7 @@ const UnitDetail = () => {
   };
 
   return (
-    <Box className="container pt-20 p-2 md:p-16 md:pt-0">
+    <Box className="container pt-20 p-2 md:p-16">
       {isLoading ? (
         <Skeleton
           data-testid="detail-loader"
