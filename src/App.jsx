@@ -8,7 +8,7 @@ import Error from "./pages/Error";
 
 function App() {
   return (
-    <div className="relative h-screen w-full bg-slate-100">
+    <div className="relative min-h-screen h-full w-full bg-slate-100">
       <Navbar />
       <main>
         <Routes>
